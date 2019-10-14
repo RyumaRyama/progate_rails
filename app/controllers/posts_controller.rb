@@ -14,7 +14,6 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(content: params[:content])
     if @post.save
-      # 変数flash[:notice]に、指定されたメッセージを代入してください
       flash[:notice] = "投稿を作成しました"
       redirect_to("/posts/index")
     else
@@ -40,7 +39,6 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find_by(id: params[:id])
     @post.destroy
-    # 変数flash[:notice]に、指定されたメッセージを代入してください
     flash[:notice] = "投稿を削除しました"
     redirect_to("/posts/index")
   end
